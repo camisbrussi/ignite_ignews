@@ -30,6 +30,7 @@ This project was developed using the following technologies:
 - [Stripe](https://stripe.com/en-br)
 - [Prismic](https://prismic.io/)
 - Jamstack
+- Testing Library (https://testing-library.com/)
 
 
 ## ignews
@@ -47,6 +48,12 @@ You need yarn package manager.
   cd web
   yarn
   yarn start
+  ``` 
+
+## Testing - Running locally
+
+  ```bash
+  yarn test
   ``` 
 
 Made with by [Camila Sbrussi](https://www.linkedin.com/in/camila-sbrussi-a7b48516a/) with the support of [Rocketseat](rocketseat.com.br)
