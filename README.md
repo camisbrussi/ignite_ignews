@@ -30,7 +30,7 @@ This project was developed using the following technologies:
 - [Stripe](https://stripe.com/en-br)
 - [Prismic](https://prismic.io/)
 - Jamstack
-- Testing Library (https://testing-library.com/)
+- [Testing Library](https://testing-library.com/)
 
 
 ## ignews
