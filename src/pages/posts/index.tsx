@@ -1,11 +1,11 @@
-import { GetStaticProps } from "next";
-import Head from "next/head";
-import Link from "next/link";
+import { GetStaticProps } from 'next';
+import Head from 'next/head';
+import Link from 'next/link';
 
-import { getPrismicClient } from "../../services/prismic";
-import styles from "./styles.module.scss";
-import Prismic from "@prismicio/client";
-import { RichText } from "prismic-dom";
+import { getPrismicClient } from '../../services/prismic';
+import styles from './styles.module.scss';
+import Prismic from '@prismicio/client';
+import { RichText } from 'prismic-dom';
 
 type Post = {
   slug: string;
@@ -28,8 +28,8 @@ export default function Posts({ posts }: PostProps) {
       <main className={styles.container}>
         <div className={styles.posts}>
           {posts.map((post) => (
-            <Link href={`/posts/${post.slug}`}>
-              <a key={post.slug}>
+            <Link key={post.slug} href={`/posts/${post.slug}`}>
+              <a>
                 <time>{post.updatedAt}</time>
                 <strong>{post.title}</strong>
                 <p>{post.excerpt}</p>
@@ -46,9 +46,9 @@ export const getStaticProps: GetStaticProps = async () => {
   const prismic = getPrismicClient();
 
   const response = await prismic.query(
-    [Prismic.predicates.at("document.type", "post")],
+    [Prismic.predicates.at('document.type', 'post')],
     {
-      fetch: ["post.title", "post.content"],
+      fetch: ['post.title', 'post.content'],
       pageSize: 100,
     }
   );
@@ -58,14 +58,14 @@ export const getStaticProps: GetStaticProps = async () => {
       slug: posts.uid,
       title: RichText.asText(posts.data.title),
       excerpt:
-        posts.data.content.find((content) => content.type === "paragraph")
-          ?.text ?? "",
+        posts.data.content.find((content) => content.type === 'paragraph')
+          ?.text ?? '',
       updatedAt: new Date(posts.last_publication_date).toLocaleDateString(
-        "pt-BR",
+        'pt-BR',
         {
-          day: "2-digit",
-          month: "long",
-          year: "numeric",
+          day: '2-digit',
+          month: 'long',
+          year: 'numeric',
         }
       ),
     };
